@@ -2,5 +2,5 @@ package org.vnsemkin.semkinmiddleservice.application.dtos.back;
 
 import org.springframework.lang.NonNull;
 
-public record BackendRegistrationReq(long userId, @NonNull String username) {
+public record AccountRegistrationReq(long id, @NonNull String accountName) {
 }
