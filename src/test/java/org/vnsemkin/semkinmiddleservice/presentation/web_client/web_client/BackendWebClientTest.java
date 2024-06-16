@@ -1,4 +1,4 @@
-package org.vnsemkin.semkinmiddleservice.web_client;
+package org.vnsemkin.semkinmiddleservice.presentation.web_client.web_client;
 
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -15,7 +15,7 @@ import org.vnsemkin.semkinmiddleservice.application.dtos.back.BackendErrorRespon
 import org.vnsemkin.semkinmiddleservice.application.dtos.back.BackendRegistrationReq;
 import org.vnsemkin.semkinmiddleservice.application.dtos.back.BackendRespUuid;
 import org.vnsemkin.semkinmiddleservice.domain.models.Result;
-import org.vnsemkin.semkinmiddleservice.models.ErrorModel;
+import org.vnsemkin.semkinmiddleservice.domain.models.ErrorModel;
 import org.vnsemkin.semkinmiddleservice.presentation.web_client.BackendClientInterfaceImp;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;

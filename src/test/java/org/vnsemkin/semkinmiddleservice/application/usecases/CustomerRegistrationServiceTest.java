@@ -1,10 +1,10 @@
-package org.vnsemkin.semkinmiddleservice.usecases;
+package org.vnsemkin.semkinmiddleservice.application.usecases;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.vnsemkin.semkinmiddleservice.application.dtos.back.BackendErrorResponse;
 import org.vnsemkin.semkinmiddleservice.application.dtos.back.BackendRegistrationReq;
 import org.vnsemkin.semkinmiddleservice.application.dtos.back.BackendRespUuid;
@@ -12,7 +12,6 @@ import org.vnsemkin.semkinmiddleservice.application.dtos.front.CustomerRegistrat
 import org.vnsemkin.semkinmiddleservice.application.external.BackendClientInterface;
 import org.vnsemkin.semkinmiddleservice.application.mappers.AppMapper;
 import org.vnsemkin.semkinmiddleservice.application.repositories.CustomerRepository;
-import org.vnsemkin.semkinmiddleservice.application.usecases.CustomerRegistrationService;
 import org.vnsemkin.semkinmiddleservice.domain.models.Customer;
 import org.vnsemkin.semkinmiddleservice.domain.models.Result;
 import org.vnsemkin.semkinmiddleservice.domain.services.PasswordService;
@@ -25,6 +24,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
+@ExtendWith(MockitoExtension.class)
 public class CustomerRegistrationServiceTest {
     private final static long TG_USER_ID = 137264783L;
     private final static String TG_USERNAME = "Test";
@@ -48,11 +48,6 @@ public class CustomerRegistrationServiceTest {
     BackendClientInterface backendClientInterface;
     @InjectMocks
     CustomerRegistrationService customerRegistrationService;
-
-    @BeforeEach
-    public void setUp() {
-        MockitoAnnotations.openMocks(this);
-    }
 
     @Test
     public void whenCustomerAlreadyExistsInDbWithUuid_ThrowException() {
@@ -103,7 +98,6 @@ public class CustomerRegistrationServiceTest {
 
 
         when(customerRepository.findByTgId(customerRegistrationRequest.tgId())).thenReturn(Optional.of(entity));
-        when(customerRepository.save(any(CustomerEntity.class))).thenReturn(entity);
         when(backendClientInterface.registerCustomer(req))
             .thenAnswer(ans -> Result.error(backendErrorResponse));
 
@@ -142,7 +136,6 @@ public class CustomerRegistrationServiceTest {
         BackendErrorResponse backendErrorResponse = new BackendErrorResponse(TEST, TEST, TEST, TEST);
 
         when(customerRepository.findByTgId(customerRegistrationRequest.tgId())).thenReturn(Optional.of(entity));
-        when(customerRepository.save(any(CustomerEntity.class))).thenReturn(entity);
         when(backendClientInterface.registerCustomer(req))
             .thenAnswer(ans -> Result.success(USER_CREATED));
         when(backendClientInterface.getCustomerUuid(req.userId()))

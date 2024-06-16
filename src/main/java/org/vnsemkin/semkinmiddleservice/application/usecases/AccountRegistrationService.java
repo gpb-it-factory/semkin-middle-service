@@ -20,7 +20,7 @@ import java.math.BigDecimal;
 @RequiredArgsConstructor
 public final class AccountRegistrationService {
     private final static String UNKNOWN_ERROR = "Неизвестная ошибка";
-    private final static String DEFAULT_ACCOUNT_NAME = "Дебетовый";
+    private final static String DEFAULT_ACCOUNT_NAME = "Акционный";
     private final static String USER_NOT_EXIST = "Пользователь не зарегистрирован.";
     private final static String ACCOUNT_ALREADY_EXIST = "У Вас уже открыть счет.";
     private final static BigDecimal REGISTRATION_ACCOUNT_BONUS = new BigDecimal("5000.00");

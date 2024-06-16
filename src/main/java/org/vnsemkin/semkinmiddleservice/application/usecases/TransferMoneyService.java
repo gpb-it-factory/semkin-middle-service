@@ -34,7 +34,9 @@ public class TransferMoneyService {
         String fromUsername = transferRequest.from();
         return customerRepository.findByUsername(fromUsername)
             .map(customer -> {
-                if (isBalanceLow(customer, amount)) {
+                if (customer.getAccount() == null ||
+                    customer.getAccount().getBalance() == null ||
+                    isBalanceLow(customer, amount)) {
                     return Result.<TransferResponse, String>error(NOT_ENOUGH_MONEY);
                 } else {
                     return requestTransferMoney(transferRequest, customer, amount);
@@ -44,7 +46,8 @@ public class TransferMoneyService {
     }
 
     private boolean isBalanceLow(CustomerEntity customer, BigDecimal amount) {
-        return customer.getAccount().getBalance().compareTo(amount) < 0;
+        BigDecimal balance = customer.getAccount().getBalance();
+        return balance.compareTo(amount) < 0 || balance.compareTo(BigDecimal.ZERO) == 0;
     }
 
     private Result<TransferResponse, String> requestTransferMoney(@NonNull TransferRequest transferRequest,

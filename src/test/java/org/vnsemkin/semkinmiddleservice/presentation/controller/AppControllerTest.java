@@ -1,4 +1,4 @@
-package org.vnsemkin.semkinmiddleservice.controller;
+package org.vnsemkin.semkinmiddleservice.presentation.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;

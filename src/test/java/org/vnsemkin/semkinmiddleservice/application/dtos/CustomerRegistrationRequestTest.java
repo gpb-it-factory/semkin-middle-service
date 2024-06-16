@@ -1,4 +1,4 @@
-package org.vnsemkin.semkinmiddleservice.models;
+package org.vnsemkin.semkinmiddleservice.application.dtos;
 
 import org.junit.jupiter.api.Test;
 import org.vnsemkin.semkinmiddleservice.application.dtos.front.CustomerRegistrationRequest;
