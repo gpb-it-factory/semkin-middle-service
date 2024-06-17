@@ -14,8 +14,7 @@ public record BackendErrorResponse(
         @JsonProperty("message") String message,
         @JsonProperty("type") String type,
         @JsonProperty("code") String code,
-        @JsonProperty("trace_id") String traceId
-    ) {
+        @JsonProperty("trace_id") String traceId) {
         this.message = message;
         this.type = type;
         this.code = code;

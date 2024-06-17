@@ -1,4 +1,7 @@
 package org.vnsemkin.semkinmiddleservice.application.dtos.back;
 
-public record BackendRegistrationReq(long id) {
+import org.springframework.lang.NonNull;
+
+public record BackendRegistrationReq(long userId,
+                                     @NonNull String username) {
 }

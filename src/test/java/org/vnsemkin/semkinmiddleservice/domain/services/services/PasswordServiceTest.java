@@ -1,4 +1,4 @@
-package org.vnsemkin.semkinmiddleservice.services;
+package org.vnsemkin.semkinmiddleservice.domain.services.services;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
