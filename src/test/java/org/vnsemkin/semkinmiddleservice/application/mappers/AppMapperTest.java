@@ -47,7 +47,7 @@ public class AppMapperTest {
         CustomerEntity customerEntity = new CustomerEntity();
         customerEntity.setId(LOCAL_ID);
         customerEntity.setFirstName(FIRST_NAME);
-        customerEntity.setUsername(TG_USERNAME);
+        customerEntity.setUserName(TG_USERNAME);
         customerEntity.setEmail(EMAIL);
         customerEntity.setPasswordHash(PASSWORD);
 
@@ -70,7 +70,7 @@ public class AppMapperTest {
         assertEquals(entity.getId(), LOCAL_ID);
         assertEquals(entity.getTgId(), TG_USER_ID);
         assertEquals(entity.getFirstName(), FIRST_NAME);
-        assertEquals(entity.getUsername(), TG_USERNAME);
+        assertEquals(entity.getUserName(), TG_USERNAME);
         assertEquals(entity.getEmail(), EMAIL);
         assertEquals(entity.getPasswordHash(), PASSWORD);
         assertEquals(entity.getUuid(), UUID);
@@ -85,7 +85,7 @@ public class AppMapperTest {
 
         assertEquals(entity.getTgId(), TG_USER_ID);
         assertEquals(entity.getFirstName(), FIRST_NAME);
-        assertEquals(entity.getUsername(), TG_USERNAME);
+        assertEquals(entity.getUserName(), TG_USERNAME);
         assertEquals(entity.getEmail(), EMAIL);
         assertEquals(entity.getPasswordHash(), PASSWORD);
         assertNull(entity.getUuid());
@@ -97,7 +97,7 @@ public class AppMapperTest {
         customerEntity.setId(LOCAL_ID);
         customerEntity.setTgId(TG_USER_ID);
         customerEntity.setFirstName(FIRST_NAME);
-        customerEntity.setUsername(TG_USERNAME);
+        customerEntity.setUserName(TG_USERNAME);
         customerEntity.setEmail(EMAIL);
         customerEntity.setPasswordHash(PASSWORD);
         customerEntity.setUuid(UUID);
@@ -107,7 +107,7 @@ public class AppMapperTest {
         assertEquals(customer.id(), LOCAL_ID);
         assertEquals(customer.tgId(), TG_USER_ID);
         assertEquals(customer.firstName(), FIRST_NAME);
-        assertEquals(customer.username(), TG_USERNAME);
+        assertEquals(customer.userName(), TG_USERNAME);
         assertEquals(customer.email(), EMAIL);
         assertEquals(customer.passwordHash(), PASSWORD);
         assertEquals(customer.uuid(), UUID);

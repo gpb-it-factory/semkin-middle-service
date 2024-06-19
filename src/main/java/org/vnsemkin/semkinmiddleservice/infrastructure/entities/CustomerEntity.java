@@ -26,8 +26,8 @@ public class CustomerEntity {
     private long tgId;
     @Column(name = "first_name", nullable = false)
     private String firstName;
-    @Column(nullable = false)
-    private String username;
+    @Column(name = "user_name",nullable = false)
+    private String userName;
     @Column(nullable = false,unique = true)
     private String email;
     @Column(name = "password_hash", nullable = false)

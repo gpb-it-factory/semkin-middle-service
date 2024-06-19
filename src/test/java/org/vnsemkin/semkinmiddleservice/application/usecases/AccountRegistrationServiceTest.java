@@ -102,7 +102,7 @@ public class AccountRegistrationServiceTest {
         entity.setId(ID);
         entity.setTgId(TG_ID);
         entity.setFirstName(FIRSTNAME);
-        entity.setUsername(USERNAME);
+        entity.setUserName(USERNAME);
         entity.setEmail(EMAIL);
         entity.setPasswordHash(PASSWORD_HASH);
         entity.setUuid(UUID);

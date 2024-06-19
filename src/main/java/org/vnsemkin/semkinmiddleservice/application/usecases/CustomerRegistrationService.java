@@ -61,7 +61,7 @@ public final class CustomerRegistrationService {
 
     private Result<Customer, String> registerCustomerOnBackend(@NonNull CustomerEntity customerEntity) {
         Result<String, BackendErrorResponse> registerResult = backendClientInterface
-            .registerCustomer(new BackendRegistrationReq(customerEntity.getTgId(), customerEntity.getUsername()));
+            .registerCustomer(new BackendRegistrationReq(customerEntity.getTgId(), customerEntity.getUserName()));
         if (registerResult.isSuccess()) {
             return getSavedOnBackendCustomerUuid(customerEntity);
         }

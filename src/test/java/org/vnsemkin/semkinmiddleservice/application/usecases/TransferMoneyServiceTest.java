@@ -1,6 +1,5 @@
 package org.vnsemkin.semkinmiddleservice.application.usecases;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -59,7 +58,7 @@ public class TransferMoneyServiceTest {
         customerEntity.setAccount(accountEntity);
         TransferRequest request =
             new TransferRequest(STRING_STUB, STRING_STUB, BALANCE_FIVE_HUNDREDS.toString());
-        when(customerRepository.findByUsername(anyString())).thenReturn(Optional.of(customerEntity));
+        when(customerRepository.findByUserName(anyString())).thenReturn(Optional.of(customerEntity));
 
         Result<TransferResponse, String> response =
             transferMoneyService.transferMoney(request);
@@ -78,7 +77,7 @@ public class TransferMoneyServiceTest {
         customerEntity.setAccount(accountEntity);
         TransferRequest request =
             new TransferRequest(STRING_STUB, STRING_STUB, BALANCE_FIVE_HUNDREDS.toString());
-        when(customerRepository.findByUsername(anyString())).thenReturn(Optional.of(customerEntity));
+        when(customerRepository.findByUserName(anyString())).thenReturn(Optional.of(customerEntity));
 
         Result<TransferResponse, String> response =
             transferMoneyService.transferMoney(request);
@@ -97,7 +96,7 @@ public class TransferMoneyServiceTest {
         customerEntity.setAccount(accountEntity);
         TransferRequest request =
             new TransferRequest(STRING_STUB, STRING_STUB, BALANCE_ZERO.toString());
-        when(customerRepository.findByUsername(anyString())).thenReturn(Optional.of(customerEntity));
+        when(customerRepository.findByUserName(anyString())).thenReturn(Optional.of(customerEntity));
 
         Result<TransferResponse, String> response =
             transferMoneyService.transferMoney(request);
@@ -116,7 +115,7 @@ public class TransferMoneyServiceTest {
         customerEntity.setAccount(accountEntity);
         TransferRequest request =
             new TransferRequest(STRING_STUB, STRING_STUB, BALANCE_ONE_HUNDREDS.toString());
-        when(customerRepository.findByUsername(anyString())).thenReturn(Optional.of(customerEntity));
+        when(customerRepository.findByUserName(anyString())).thenReturn(Optional.of(customerEntity));
         when(backendClientInterface.transferMoney(request))
             .thenReturn(Result.success(new TransferResponse(UUID)));
         Result<TransferResponse, String> response =
@@ -132,7 +131,7 @@ public class TransferMoneyServiceTest {
         entity.setId(ID);
         entity.setTgId(TG_ID);
         entity.setFirstName(FIRSTNAME);
-        entity.setUsername(USERNAME);
+        entity.setUserName(USERNAME);
         entity.setEmail(EMAIL);
         entity.setPasswordHash(PASSWORD_HASH);
         entity.setUuid(UUID);

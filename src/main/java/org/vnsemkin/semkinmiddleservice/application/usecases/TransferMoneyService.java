@@ -32,7 +32,7 @@ public class TransferMoneyService {
     public Result<TransferResponse, String> transferMoney(@NonNull TransferRequest transferRequest) {
         BigDecimal amount = new BigDecimal(transferRequest.amount());
         String fromUsername = transferRequest.from();
-        return customerRepository.findByUsername(fromUsername)
+        return customerRepository.findByUserName(fromUsername)
             .map(customer -> {
                 if (customer.getAccount() == null ||
                     customer.getAccount().getBalance() == null ||
