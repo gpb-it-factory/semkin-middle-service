@@ -1,0 +1,6 @@
+# Datasource
+spring.datasource.url: jdbc:postgresql://gpb-postgres:5432/gpb
+
+# FlyWay
+spring.flyway.url: jdbc:postgresql://gpb-postgres:5432/gpb
+spring.flyway.locations: classpath:db/migration

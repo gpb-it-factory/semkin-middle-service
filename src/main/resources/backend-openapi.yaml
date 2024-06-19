@@ -107,7 +107,7 @@ paths:
   /v2/users/{tg-username}:
     get:
       operationId: getUserByTelegramUsernameV2
-      summary: Получить пользователя по username в Telegram
+      summary: Получить пользователя по userName в Telegram
       tags: [users]
       parameters:
         - in: path

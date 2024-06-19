@@ -5,7 +5,7 @@ import org.vnsemkin.semkinmiddleservice.presentation.exception.CustomerDtoValida
 
 import static org.vnsemkin.semkinmiddleservice.application.config.AppConstants.*;
 
-public record CustomerRegistrationRequest(long tgId, @NonNull String firstName, @NonNull String username,
+public record CustomerRegistrationRequest(long tgId, @NonNull String firstName, @NonNull String userName,
                                           @NonNull String email, @NonNull String password) {
     private static final String EMAIL_REGEX = "[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+";
 
