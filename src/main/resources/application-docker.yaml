@@ -1,5 +1,6 @@
 # Datasource
 spring.datasource.url: jdbc:postgresql://gpb-postgres:5432/gpb
+backend.base-url: http://fake-backend:8080
 
 # FlyWay
 spring.flyway.url: jdbc:postgresql://gpb-postgres:5432/gpb
