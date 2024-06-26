@@ -41,6 +41,8 @@ public class TransactionEntity {
 
     @PrePersist
     protected void onCreate() {
-        timestamp = new Date();
+        if (timestamp == null) {
+            timestamp = new Date();
+        }
     }
 }
