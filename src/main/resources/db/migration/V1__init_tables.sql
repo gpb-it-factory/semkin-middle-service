@@ -15,11 +15,7 @@ CREATE TABLE customers (
                           email          VARCHAR(50) NOT NULL UNIQUE,
                           password_hash  CHAR(60) NOT NULL,
                           uuid           CHAR(36) UNIQUE,
-                          account_id     BIGINT UNIQUE,
-                          CONSTRAINT fk_account
-                              FOREIGN KEY (account_id)
-                                  REFERENCES accounts(id),
-                          CONSTRAINT uq_account_id UNIQUE (account_id)
+                          account_id     BIGINT UNIQUE
 );
 
 -- Create the transaction table
@@ -30,11 +26,5 @@ CREATE TABLE transactions (
                              timestamp TIMESTAMP NOT NULL,
                              amount NUMERIC(15, 2) NOT NULL,
                              new_balance NUMERIC(15, 2) NOT NULL,
-                             transaction_uuid CHAR(36) NOT NULL,
-                             CONSTRAINT fk_transaction_account
-                                 FOREIGN KEY (account_id)
-                                     REFERENCES accounts(id),
-                             CONSTRAINT fk_transaction_customer
-                                 FOREIGN KEY (customer_id)
-                                     REFERENCES customers(id)
+                             transaction_uuid CHAR(36) NOT NULL
 );
