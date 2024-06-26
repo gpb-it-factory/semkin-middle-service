@@ -3,7 +3,6 @@ package org.vnsemkin.semkinmiddleservice.application.mappers;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
-import org.springframework.lang.NonNull;
 import org.vnsemkin.semkinmiddleservice.application.dtos.back.AccountInfoResponse;
 import org.vnsemkin.semkinmiddleservice.application.dtos.front.AccountRegistrationResponse;
 import org.vnsemkin.semkinmiddleservice.application.dtos.front.CustomerInfoResponse;
@@ -55,6 +54,7 @@ public interface AppMapper {
     @Mapping(target = "accountName", source = "account.accountName")
     CustomerInfoResponse toCustomerInfoResponse(CustomerEntity customerEntity);
 
+    @Mapping(target = "id", ignore = true)
     @Mapping(target = "accountId", source = "customerEntity.account.id")
     @Mapping(target = "customerId", source = "customerEntity.id")
     @Mapping(target = "timestamp", ignore = true)
